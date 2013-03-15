@@ -1,0 +1,18 @@
+#!/bin/sh
+# To call this script:
+# wget -q https://raw.github.com/xseignard/use-phantomjs/master/use-phantomjs
+# PHANTOMJS_VERSION=1.8.2 . ./use-phantomjs
+if [[ -z $PHANTOMJS_VERSION ]]; then
+   echo "You must set the PHANTOMJS_VERSION environment variable." 1>&2
+fi
+
+set -e
+
+mkdir -p /scratch/jenkins/phantomjs
+ARCH=`uname -m`
+
+phantomjs_name=phantomjs-$PHANTOMJS_VERSION-linux-${ARCH}
+
+test -f /scratch/jenkins/phantomjs/${phantomjs_name}.tar.bz2 ||  wget -q -P /scratch/jenkins/phantomjs https://phantomjs.googlecode.com/files/${phantomjs_name}.tar.bz2
+test -f /scratch/jenkins/phantomjs/${phantomjs_name}/bin/phantomjs || tar xjf /scratch/jenkins/phantomjs/${phantomjs_name}.tar.bz2  -C /scratch/jenkins/phantomjs
+export PATH=/scratch/jenkins/phantomjs/${phantomjs_name}/bin:$PATH

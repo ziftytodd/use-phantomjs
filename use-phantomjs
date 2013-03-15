@@ -1,8 +1,10 @@
 #!/bin/sh
 # To call this script:
-# curl https://raw.github.com/xseignard/use-phantomjs/master/use-phantomjs | sh
-# or with a specific version
-# PHANTOMJS_VERSION=1.8.2;curl https://raw.github.com/xseignard/use-phantomjs/master/use-phantomjs | sh
+# wget -q https://raw.github.com/xseignard/use-phantomjs/master/use-phantomjs
+# . ./use-phantomjs
+# or with a specific phantomjs version
+# wget -q https://raw.github.com/xseignard/use-phantomjs/master/use-phantomjs
+# PHANTOMJS_VERSION=1.8.2 . ./use-phantomjs
 if [[ -z $PHANTOMJS_VERSION ]]; then
    PHANTOMJS_VERSION=1.8.2
    echo "No version provided for phantomjs, will use the last one: $PHANTOMJS_VERSION" 1>&2

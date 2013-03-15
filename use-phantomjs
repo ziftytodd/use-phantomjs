@@ -1,9 +1,11 @@
 #!/bin/sh
 # To call this script:
-# wget -q https://raw.github.com/xseignard/use-phantomjs/master/use-phantomjs
-# PHANTOMJS_VERSION=1.8.2 . ./use-phantomjs
+# curl https://raw.github.com/xseignard/use-phantomjs/master/use-phantomjs | sh
+# or with a specific version
+# PHANTOMJS_VERSION=1.8.2;curl https://raw.github.com/xseignard/use-phantomjs/master/use-phantomjs | sh
 if [[ -z $PHANTOMJS_VERSION ]]; then
-   echo "You must set the PHANTOMJS_VERSION environment variable." 1>&2
+   PHANTOMJS_VERSION=1.8.2
+   echo "No version provided for phantomjs, will use the last one: $PHANTOMJS_VERSION" 1>&2
 fi
 
 set -e

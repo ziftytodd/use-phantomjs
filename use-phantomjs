@@ -18,3 +18,4 @@ phantomjs_name=phantomjs-${PHANTOMJS_VERSION}-linux-${ARCH}
 test -f /scratch/jenkins/phantomjs/${phantomjs_name}.tar.bz2 ||  wget -q -P /scratch/jenkins/phantomjs https://phantomjs.googlecode.com/files/${phantomjs_name}.tar.bz2
 test -f /scratch/jenkins/phantomjs/${phantomjs_name}/bin/phantomjs || tar xjf /scratch/jenkins/phantomjs/${phantomjs_name}.tar.bz2  -C /scratch/jenkins/phantomjs
 export PATH=/scratch/jenkins/phantomjs/${phantomjs_name}/bin:$PATH
+echo $PATH
